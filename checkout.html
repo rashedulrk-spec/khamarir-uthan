@@ -1,617 +1,228 @@
-
 <!doctype html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Untree.co">
-  <link rel="shortcut icon" href="favicon.png">
+  <title>Checkout | খামারীর উঠান</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="description" content="" />
-  <meta name="keywords" content="bootstrap, bootstrap4" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
 
-		<!-- Bootstrap CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-		<link href="css/tiny-slider.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
-		<title>খামারীর উঠান — এটি আস্থাভাজন অনলাইন প্ল্যাটফর্ম,–খাঁটি স্বাদের নিশ্চয়তা</title>
-	</head>
+  <style>
+    .invoice-box {
+      border: 1px solid #ddd;
+      padding: 20px;
+      background: #fff;
+    }
+  </style>
+</head>
 
-	<body>
+<body>
 
-		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+<div class="container py-5">
 
-			<div class="container">
-				<a class="navbar-brand" href="index.html">খামারীর উঠান <span>.</span></a>
+  <h2 class="text-center mb-4">🧾 অর্ডার ফরম</h2>
 
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                                data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" 
-                                 aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+  <div class="row">
 
-				<div class="collapse navbar-collapse" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-						<li class="nav-item ">
-							<a class="nav-link" href="index.html">Home</a>
-						</li>
-						<li><a class="nav-link" href="shop.html">Shop</a></li>
-						<li><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
-						<li><a class="nav-link" href="contact.html">Contact us</a></li>
-					</ul>
+    <!-- ================= LEFT : CUSTOMER FORM ================= -->
+    <div class="col-md-6">
 
-					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="#"><img src="images/user.svg"></a></li>
-						<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
-					</ul>
-				</div>
-			</div>
-				
-		</nav>
-		<!-- End Header/Navigation -->
+      <div class="mb-3">
+        <label>আপনার নাম</label>
+        <input type="text" id="c_name" class="form-control">
+      </div>
 
-		<!-- Start Hero Section -->
-			<div class="hero">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h1>চেকআউট</h1>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		<!-- End Hero Section -->
+      <div class="mb-3">
+        <label>মোবাইল নম্বর</label>
+        <input type="text" id="c_phone" class="form-control">
+      </div>
 
-		<div class="untree_co-section">
-		    <div class="container">
-		      <div class="row mb-5">
-		        <div class="col-md-12">
-		          <div class="border p-4 rounded" role="alert">
-		            পুরাতন গ্রাহক<a href="#">এখন থেকে</a>লগিং করুন
-		          </div>
-		        </div>
-		      </div>
-		      <div class="row">
-		        <div class="col-md-6 mb-5 mb-md-0">
-		          <h2 class="h3 mb-3 text-black">বিল বিবরণী</h2>
-		          <div class="p-3 p-lg-5 border bg-white">
-		          
-		            <div class="form-group">
-		              <label for="c_country" class="text-black">বিভাগ<span class="text-danger">*</span></label>
-		              <select id="c_country" class="form-control">
-		                <option value="1">বিভাগ নির্বাচন করুন</option>    
-		                <option value="2">ঢাকা</option>    
-		                <option value="3">চট্টগ্রাম</option>    
-		                <option value="4">রাজশাহী</option>    
-		                <option value="5">খুলনা</option>    
-		                <option value="6">সিলেট</option>    
-		                <option value="7">বরিশাল</option>    
-		                <option value="8">রংপুর</option>    
-		                <option value="9">ময়মনসিংহ</option>    
-		              </select>
-		                  </div>
+      <div class="mb-3">
+        <label>সম্পূর্ণ ঠিকানা</label>
+        <textarea id="c_address" class="form-control" rows="3"></textarea>
+      </div>
 
+      <div class="mb-3">
+        <label>অর্ডার সারাংশ</label>
+        <textarea id="orderText" class="form-control" rows="8" readonly></textarea>
+      </div>
 
-		                  <div class="form-group row">
-		                    <div class="col-md-6">
-		                      <label for="c_diff_fname" class="text-black">পূর্ণাঙ্গ নাম<span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_fname" name="c_diff_fname">
-		                    </div>
-		                    <div class="col-md-6">
-		                      <label for="c_diff_lname" class="text-black"> <span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_lname" name="c_diff_lname">
-		                    </div>
-		                  </div>
+      <button class="btn btn-success w-100 mb-2" onclick="sendWhatsApp()">
+        📲 WhatsApp এ অর্ডার পাঠান
+      </button>
 
-		                  <div class="form-group row">
-		                    <div class="col-md-12">
-		                      <label for="c_diff_companyname" class="text-black">থানার নাম<span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_companyname" name="c_diff_companyname">
-		                    </div>
-		                  </div>
+      <button class="btn btn-primary w-100 mb-2" onclick="sendMessengerOrder()">
+        💬 Messenger এ অর্ডার পাঠান
+      </button>
 
-		                  <div class="form-group row  mb-3">
-		                    <div class="col-md-12">
-		                      <label for="c_diff_address" class="text-black">ঠিকানা<span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_address" name="c_diff_address" placeholder="সড়ক/মহল্লা">
-		                    </div>
-		                  </div>
+      <button class="btn btn-outline-dark w-100 mb-2" onclick="manualOrder()">
+        📞 Manual / Call Order
+      </button>
 
-		                  <div class="form-group">
-		                    <input type="text" class="form-control" placeholder="অ্যাপার্টমেন্ট, স্যুট, ইউনিট ইত্যাদি (ঐচ্ছিক)">
-		                  </div>
+      <button class="btn btn-dark w-100" onclick="window.print()">
+        🖨️ ইনভয়েজ প্রিন্ট
+      </button>
 
-		                  <div class="form-group row">
-		                    <div class="col-md-6">
-		                      <label for="c_diff_state_country" class="text-black">জেলা<span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_state_country" name="c_diff_state_country">
-		                    </div>
-		                    <div class="col-md-6">
-		                      <label for="c_diff_postal_zip" class="text-black">পোস্টাল কোড<span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_postal_zip" name="c_diff_postal_zip">
-		                    </div>
-		                  </div>
+    </div>
 
-		                  <div class="form-group row mb-5">
-		                    <div class="col-md-6">
-		                      <label for="c_diff_email_address" class="text-black">ই-মেইল</label>
-		                      <input type="text" class="form-control" id="c_diff_email_address" name="c_diff_email_address">
-		                    </div>
-		                    <div class="col-md-6">
-		                      <label for="c_diff_phone" class="text-black">মোবাইল নাম্বার <span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_phone" name="c_diff_phone" placeholder="01xxxxxxxxx">
-		                    </div>
-		            </div>
-		            </div>
+    <!-- ================= RIGHT : INVOICE ================= -->
+    <div class="col-md-6">
+      <div class="invoice-box">
+        <h4 class="text-center">খামারীর উঠান</h4>
+        <p class="text-center">খাঁটি স্বাদের নিশ্চয়তা</p>
+        <hr>
 
-		            <div class="form-group">
-		              <label for="c_create_account" class="text-black" data-bs-toggle="collapse" 
-                                  href="#create_an_account" role="button" aria-expanded="false"                 
-                                    aria-controls="create_an_account"><input type="checkbox" value="1" id="c_create_account">অ্যাকাউন্ট তৈরি করবেন?</label>
-		              <div class="collapse" id="create_an_account">
-		                <div class="py-2 mb-4">
-		                  <p class="mb-3">নীচের তথ্য প্রবেশ করে একটি অ্যাকাউন্ট তৈরি করুন। 
-                                      যদি আপনি একজন প্রত্যাবর্তনকারী গ্রাহক হন তবে অনুগ্রহ করে পৃষ্ঠার শীর্ষে লগইন করুন।</p>
-		                  <div class="form-group">
-		                    <label for="c_account_password" class="text-black">পাসওয়ার্ড</label>
-		                    <input type="email" class="form-control" id="c_account_password" name="c_account_password" placeholder="">
-		                  </div>
-		                </div>
-		              </div>
-		            </div>
+        <div id="invoiceItems"></div>
 
+        <hr>
+        <h5 id="invoiceTotal"></h5>
+      </div>
+    </div>
 
-		            <div class="form-group">
-		              <label for="c_ship_different_address" class="text-black" data-bs-toggle="collapse" 
-                                  href="#ship_different_address" role="button" aria-expanded="false" 
-                                      aria-controls="ship_different_address"><input type="checkbox" value="1" id="c_ship_different_address">
-                                       অন্য ঠিকানায় পাঠাবেন?</label>
-		              <div class="collapse" id="ship_different_address">
-		                <div class="py-2">
+  </div>
+</div>
 
-		            <div class="form-group">
-		              <label for="c_country" class="text-black">বিভাগ<span class="text-danger">*</span></label>
-		              <select id="c_country" class="form-control">
-		                <option value="1">বিভাগ নির্বাচন করুন</option>    
-		                <option value="2">ঢাকা</option>    
-		                <option value="3">চট্টগ্রাম</option>    
-		                <option value="4">রাজশাহী</option>    
-		                <option value="5">খুলনা</option>    
-		                <option value="6">সিলেট</option>    
-		                <option value="7">বরিশাল</option>    
-		                <option value="8">রংপুর</option>    
-		                <option value="9">ময়মনসিংহ</option>    
-		              </select>
-		                  </div>
-
-
-		                  <div class="form-group row">
-		                    <div class="col-md-6">
-		                      <label for="c_diff_fname" class="text-black">পূর্ণাঙ্গ নাম<span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_fname" name="c_diff_fname">
-		                    </div>
-		                    <div class="col-md-6">
-		                      <label for="c_diff_lname" class="text-black"> </span></label>
-		                      <input type="text" class="form-control" id="c_diff_lname" name="c_diff_lname">
-		                    </div>
-		                  </div>
-
-		                  <div class="form-group row">
-		                    <div class="col-md-12">
-		                      <label for="c_diff_companyname" class="text-black">থানার নাম<span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_companyname" name="c_diff_companyname">
-		                    </div>
-		                  </div>
-
-		                  <div class="form-group row  mb-3">
-		                    <div class="col-md-12">
-		                      <label for="c_diff_address" class="text-black">ঠিকানা<span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_address" name="c_diff_address" placeholder="সড়ক/মহল্লা">
-		                    </div>
-		                  </div>
-
-		                  <div class="form-group">
-		                    <input type="text" class="form-control" placeholder="অ্যাপার্টমেন্ট, স্যুট, ইউনিট ইত্যাদি (ঐচ্ছিক)">
-		                  </div>
-
-		                  <div class="form-group row">
-		                    <div class="col-md-6">
-		                      <label for="c_diff_state_country" class="text-black">জেলা<span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_state_country" name="c_diff_state_country">
-		                    </div>
-		                    <div class="col-md-6">
-		                      <label for="c_diff_postal_zip" class="text-black">পোস্টাল কোড<span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_postal_zip" name="c_diff_postal_zip">
-		                    </div>
-		                  </div>
-
-		                  <div class="form-group row mb-5">
-		                    <div class="col-md-6">
-		                      <label for="c_diff_email_address" class="text-black">ই-মেইল </span></label>
-		                      <input type="text" class="form-control" id="c_diff_email_address" name="c_diff_email_address">
-		                    </div>
-		                    <div class="col-md-6">
-		                      <label for="c_diff_phone" class="text-black">মোবাইল নাম্বার <span class="text-danger">*</span></label>
-		                      <input type="text" class="form-control" id="c_diff_phone" name="c_diff_phone" placeholder="01xxxxxxxxx">
-		                    </div>
-		                  </div>
-
-		                </div>
-
-		              </div>
-		            </div>
-
-		            <div class="form-group">
-		              <label for="c_order_notes" class="text-black">অর্ডার নোট</label>
-		              <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" 
-                                 class="form-control" placeholder="আপনার কোন মন্তব্য থাকলে এখানে লিখুন ...."></textarea>
-		            </div>
-
-		          </div>
-		        </div>
-		        <div class="col-md-6">
-
-		          <div class="row mb-5">
-		            <div class="col-md-12">
-		              <h2 class="h3 mb-3 text-black">কুপন কোড</h2>
-		              <div class="p-3 p-lg-5 border bg-white">
-
-		                <label for="c_code" class="text-black mb-3">আপনার কুপন কোড থাকলে তা লিখুন।</label>
-		                <div class="input-group w-75 couponcode-wrap">
-		                  <input type="text" class="form-control me-2" id="c_code" placeholder="কুপন কোড" aria-label="কুপন কোড" aria-describedby="button-addon2">
-		                  <div class="input-group-append">
-		                    <button class="btn btn-black btn-sm" type="button" id="button-addon2">সাবমিট</button>
-		                  </div>
-		                </div>
-
-		              </div>
-		            </div>
-		          </div>
-
-		          <div class="row mb-5">
-		            <div class="col-md-12">
-		              <h2 class="h3 mb-3 text-black">আপনার অর্ডার</h2>
-		              <div class="p-3 p-lg-5 border bg-white">
-		                <table class="table site-block-order-table mb-5">
-		                  <thead>
-		                    <th>পণ্য</th>
-		                    <th>মোট </th>
-		                  </thead>
-<tbody>
-
-<tr>
-  <td>খেজুরের পাটালি গুড়</td>
-  <td>
-    <button type="button" onclick="qtyChange('p1', -1)">-</button>
-    <span id="qty_p1">0</span> কেজি
-    <button type="button" onclick="qtyChange('p1', 1)">+</button>
-    <br>
-    প্রতি কেজি: ৫০০ টাকা
-  </td>
-  <td>৳ <span id="total_p1">0</span></td>
-</tr>
-
-<tr>
-  <td>খেজুরের রসালো গুড়</td>
-  <td>
-    <button type="button" onclick="qtyChange('p2', -1)">-</button>
-    <span id="qty_p2">0</span> কেজি
-    <button type="button" onclick="qtyChange('p2', 1)">+</button>
-    <br>
-    প্রতি কেজি: ৪০০ টাকা
-  </td>
-  <td>৳ <span id="total_p2">0</span></td>
-</tr>
-
-<tr>
-  <td>সরিষার তেল</td>
-  <td>
-    <button type="button" onclick="qtyChange('p3', -1)">-</button>
-    <span id="qty_p3">0</span> কেজি
-    <button type="button" onclick="qtyChange('p3', 1)">+</button>
-    <br>
-    প্রতি কেজি: ৩০০ টাকা
-  </td>
-  <td>৳ <span id="total_p3">0</span></td>
-</tr>
-
-<tr>
-  <td>চেপা শুটকি</td>
-  <td>
-    <button type="button" onclick="qtyChange('p4', -1)">-</button>
-    <span id="qty_p4">0</span> কেজি
-    <button type="button" onclick="qtyChange('p4', 1)">+</button>
-    <br>
-    প্রতি কেজি: ৬০০ টাকা
-  </td>
-  <td>৳ <span id="total_p4">0</span></td>
-</tr>
-
-<tr>
-  <td>লইট্যা শুটকি</td>
-  <td>
-    <button type="button" onclick="qtyChange('p5', -1)">-</button>
-    <span id="qty_p5">0</span> কেজি
-    <button type="button" onclick="qtyChange('p5', 1)">+</button>
-    <br>
-    প্রতি কেজি: ৫৫০ টাকা
-  </td>
-  <td>৳ <span id="total_p5">0</span></td>
-</tr>
-
-<tr>
-  <td><strong>সাবটোটাল</strong></td>
-  <td style="text-align:right;">৳ <span id="subTotal">0</span></td>
-</tr>
-
-<tr>
-  <td>
-    <label style="cursor:pointer;">
-      <input type="checkbox" id="outsideDhaka" onchange="updateTotal()">
-      ডেলিভারি চার্জ ঢাকার বাহিরে
-    </label>
-  </td>
-  <td style="text-align:right;">৳ <span id="shipping">50</span></td>
-</tr>
-
-<tr>
-  <td><strong>মোট অর্ডার</strong></td>
-  <td style="text-align:right;"><strong>৳ <span id="grandTotal">0</span></strong></td>
-</tr>
-
-</tbody>
-
-		                </table>
-
-		                <div class="border p-3 mb-3">
-		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" 
-                                        href="#collapsebank" role="button" aria-expanded="false" 
-                                          aria-controls="collapsebank">সরাসরি ব্যাংক স্থানান্তর</a></h3>
-
-		                  <div class="collapse" id="collapsebank">
-		                    <div class="py-2">
-		                      <p class="mb-0">আপনার পেমেন্ট সরাসরি আমাদের ব্যাংক অ্যাকাউন্টে করুন। 
-                                         অনুগ্রহ করে পেমেন্ট রেফারেন্স হিসেবে আপনার অর্ডার আইডি ব্যবহার করুন। 
-                                             আমাদের অ্যাকাউন্টে টাকা জমা না হওয়া পর্যন্ত আপনার অর্ডার পাঠানো হবে না।</p>
-		                    </div>
-		                  </div>
-		                </div>
-
-		                <div class="border p-3 mb-3">
-		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse"
-                                       href="#collapsecheque" role="button" aria-expanded="false" 
-                                               aria-controls="collapsecheque">চেক পেমেন্ট </a></h3>
-
-		                  <div class="collapse" id="collapsecheque">
-		                    <div class="py-2">
-		                      <p class="mb-0">আপনার পেমেন্ট সরাসরি আমাদের ব্যাংক অ্যাকাউন্টে করুন। 
-                                           পেমেন্ট রেফারেন্স হিসেবে আপনার অর্ডার আইডি ব্যবহার করুন। 
-                                            আমাদের অ্যাকাউন্টে টাকা জমা না হওয়া পর্যন্ত আপনার অর্ডার পাঠানো হবে না।.</p>
-		                    </div>
-		                  </div>
-		                </div>
-
-		                <div class="border p-3 mb-5">
-		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsepaypal" 
-                                       role="button" aria-expanded="false" aria-controls="collapsepaypal">বিকাশ পেমেন্ট</a></h3>
-
-		                  <div class="collapse" id="collapsepaypal">
-		                    <div class="py-2">
-		                      <p class="mb-0">আপনার পেমেন্ট সরাসরি আমাদের ব্যাংক অ্যাকাউন্টে করুন। 
-                                          পেমেন্ট রেফারেন্স হিসেবে আপনার অর্ডার আইডি ব্যবহার করুন। 
-                                              আমাদের অ্যাকাউন্টে টাকা জমা না হওয়া পর্যন্ত আপনার অর্ডার পাঠানো হবে না।</p>
-		                    </div>
-		                  </div>
-		                </div>
-
-
-		                <div class="border p-3 mb-5">
-		                  <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsepaypal" 
-                                       role="button" aria-expanded="false" aria-controls="collapsepaypal">নগদ পেমেন্ট</a></h3>
-
-		                  <div class="collapse" id="collapsepaypal">
-		                    <div class="py-2">
-		                      <p class="mb-0">আপনার পেমেন্ট সরাসরি আমাদের ব্যাংক অ্যাকাউন্টে করুন। 
-                                          পেমেন্ট রেফারেন্স হিসেবে আপনার অর্ডার আইডি ব্যবহার করুন। 
-                                              আমাদের অ্যাকাউন্টে টাকা জমা না হওয়া পর্যন্ত আপনার অর্ডার পাঠানো হবে না।</p>
-		                    </div>
-		                  </div>
-		                </div>
-
-		                <div class="form-group">
-		                  <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='thankyou.html'">অর্ডার করুন</button>
-		                </div>
-
-		              </div>
-		            </div>
-		          </div>
-
-		        </div>
-		      </div>
-		      <!-- </form> -->
-		    </div>
-		  </div>
-
-		<!-- Start Footer Section -->
-		<footer class="footer-section">
-			<div class="container relative">
-
-				<div class="sofa-img">
-					<img src="images/khejur-gur.png" alt="Image" class="img-fluid">
-				</div>
-
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="subscription-form">
-							<h3 class="d-flex align-items-center">
-                                                          <span class="me-1"><img src="images/envelope-outline.svg" alt="Image"                                   
-                                                               class="img-fluid"></span><span>আপগ্রেড পেতে সাবস্ক্রাইব করুন</span></h3>
-
-							<form action="#" class="row g-3">
-								<div class="col-auto">
-									<input type="text" class="form-control" placeholder="আপনার নাম লিখুন">
-								</div>
-								<div class="col-auto">
-									<input type="email" class="form-control" placeholder="আপনার ইমেইল লিখুন">
-								</div>
-								<div class="col-auto">
-									<button class="btn btn-primary">
-										<span class="fa fa-paper-plane"></span>
-									</button>
-								</div>
-							</form>
-
-						</div>
-					</div>
-				</div>
-
-				<div class="row g-5 mb-5">
-					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap">
-                                                      <a href="#" class="footer-logo">খামারীর উঠান <span>.</span></a></div>
-						<p class="mb-4">খামারীর উঠান –খাঁটি স্বাদের নিশ্চয়তা
-
-                                                   — এটি আস্থাভাজন অনলাইন প্ল্যাটফর্ম,  
-                                                      যার লক্ষ্য বাংলাদেশের গ্রামের প্রত্যন্ত অঞ্চল থেকে খাঁটি ও ভেজালমুক্ত খাদ্যপণ্য সংগ্রহ করে সরাসরি ভোক্তাদের হাতে পৌঁছে দেওয়া।
-                                                        আমরা সরাসরি খামারি ও গ্রামীণ উৎপাদকদের কাছ থেকে সংগ্রহ করি —
-
-                                                            খাঁটি আখের গুড়
-
-                                                             ঘানি ভাঙা সরিষার তেল
-
-                                                                প্রাকৃতিকভাবে শুকানো দেশি শুটকি
-
-                                                           আমাদের বিশ্বাস — “খাঁটি খাবার, সুস্থ জীবনের প্রথম শর্ত।”
-                                                         তাই প্রতিটি পণ্য আমরা নিজস্ব তত্ত্বাবধানে যাচাই করে সংগ্রহ করি, যাতে আপনি পান নিরাপদ, স্বাস্থ্যসম্মত ও আসল স্বাদ।
-
-                                                        খামারীর উঠান শুধু একটি পেইজ নয় — এটি গ্রাম থেকে শহরে খাঁটি খাবারের একটি বিশ্বাসের সেতুবন্ধন।</p>
-
-						<ul class="list-unstyled custom-social">
-							<li><a href="https://www.facebook.com/profile.php?id=61568617067892"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
-						</ul>
-					</div>
-
-					<div class="col-lg-8">
-						<div class="row links-wrap">
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">Contact us</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Support</a></li>
-									<li><a href="#">Knowledge base</a></li>
-									<li><a href="#">Live chat</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Our team</a></li>
-									<li><a href="#">Leadership</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="border-top copyright">
-					<div class="row pt-4">
-						<div class="col-lg-6">
-							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed By <a hreff="https://themewagon.com">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
-            </p>
-						</div>
-
-						<div class="col-lg-6 text-center text-lg-end">
-							<ul class="list-unstyled d-inline-flex ms-auto">
-								<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-							</ul>
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-		</footer>
-		<!-- End Footer Section -->	
-
+<!-- ================= JS ================= -->
 <script>
-const priceList = {
-  p1: 500,
-  p2: 400,
-  p3: 300,
-  p4: 600,
-  p5: 550
-};
+const order = JSON.parse(localStorage.getItem("khamarir_order"));
 
-function qtyChange(id, change) {
-  let qtyEl = document.getElementById("qty_" + id);
-  let qty = parseInt(qtyEl.innerText);
-  qty = qty + change;
-  if (qty < 0) qty = 0;
-  qtyEl.innerText = qty;
-
-  let total = qty * priceList[id];
-  document.getElementById("total_" + id).innerText = total;
-
-  updateTotal();
+if (!order) {
+  alert("কোন অর্ডার পাওয়া যায়নি");
 }
 
-function updateTotal() {
-  let sum = 0;
-  for (let key in priceList) {
-    sum += parseInt(document.getElementById("total_" + key).innerText);
-  }
+let text = "";
+let html = "";
 
-  document.getElementById("subTotal").innerText = sum;
-
-  // ✅ এখানে আসল ফিক্স
-  let outsideBox = document.getElementById("outsideDhaka");
-  let ship = outsideBox.checked ? 160 : 50;
-
-  document.getElementById("shipping").innerText = ship;
-  document.getElementById("grandTotal").innerText = sum + ship;
-}
-
-// পেজ লোড হলে চলবে
-document.addEventListener("DOMContentLoaded", function() {
-  updateTotal();
+order.cart.forEach(item => {
+  text += `${item.name} - ${item.qty} কেজি = ৳${item.total}\n`;
+  html += `<p>${item.name} — ${item.qty} কেজি × ${item.price} = ৳${item.total}</p>`;
 });
+
+text += `\nSubtotal: ৳${order.subTotal}`;
+text += `\nDelivery: ৳${order.shipping}`;
+text += `\nTotal: ৳${order.grandTotal}`;
+
+document.getElementById("orderText").value = text;
+document.getElementById("invoiceItems").innerHTML = html;
+document.getElementById("invoiceTotal").innerText =
+  "মোট টাকা: ৳" + order.grandTotal;
 </script>
 
+<script>
+// ==========================
+// GOOGLE SHEET SEND
+// ==========================
+function sendToGoogleSheet(name, phone, address) {
 
-		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/tiny-slider.js"></script>
-		<script src="js/custom.js"></script>
-	</body>
+  fetch("https://script.google.com/macros/s/AKfycbyYCi9UXP0hwGvI9jSOaDVz9JnKRHZfW4SfeUObUTQPw1QKQSvRoiXG6CXWQZh7aPkEqw/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+body: JSON.stringify({
+  name: name,
+  phone: phone,
+  address: address,
+  order: document.getElementById("orderText").value,
+  subtotal: order.subTotal,
+  delivery: order.shipping,
+  total: order.grandTotal,
+  source: "Website"
+})
 
+  });
+
+}
+</script>
+
+<script>
+// ==========================
+// WHATSAPP ORDER
+// ==========================
+function sendWhatsApp() {
+
+  let name = document.getElementById("c_name").value;
+  let phone = document.getElementById("c_phone").value;
+  let address = document.getElementById("c_address").value;
+
+  if (!name || !phone || !address) {
+    alert("সব তথ্য পূরণ করুন");
+    return;
+  }
+
+  sendToGoogleSheet(name, phone, address);
+
+  let message =
+`🧾 নতুন অর্ডার (খামারীর উঠান)
+
+👤 নাম: ${name}
+📞 মোবাইল: ${phone}
+🏠 ঠিকানা: ${address}
+
+🛒 অর্ডার:
+${document.getElementById("orderText").value}`;
+
+  window.open(
+    "https://wa.me/8801842160764?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+
+  setTimeout(() => {
+    window.location.href = "thankyou.html";
+  }, 1000);
+}
+</script>
+
+<script>
+// ==========================
+// MESSENGER ORDER
+// ==========================
+function sendMessengerOrder() {
+
+  let name = document.getElementById("c_name").value;
+  let phone = document.getElementById("c_phone").value;
+  let address = document.getElementById("c_address").value;
+
+  if (!name || !phone || !address) {
+    alert("সব তথ্য পূরণ করুন");
+    return;
+  }
+
+  sendToGoogleSheet(name, phone, address);
+
+  let message =
+`নতুন অর্ডার (খামারীর উঠান)
+
+নাম: ${name}
+মোবাইল: ${phone}
+ঠিকানা: ${address}
+
+${document.getElementById("orderText").value}`;
+
+  window.open(
+    "https://m.me/61568617067892?ref=" + encodeURIComponent(message),
+    "_blank"
+  );
+
+  setTimeout(() => {
+    window.location.href = "thankyou.html";
+  }, 1500);
+}
+</script>
+
+<script>
+// ==========================
+// MANUAL ORDER
+// ==========================
+function manualOrder() {
+  alert(
+    "Manual Order\n\n" +
+    "📞 কল করুন: 01842160764\n" +
+    "⏰ সকাল ৯টা – রাত ১০টা"
+  );
+}
+</script>
+
+</body>
 </html>
