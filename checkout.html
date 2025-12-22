@@ -110,67 +110,64 @@ document.getElementById("invoiceTotal").innerText =
 </script>
 
 <script>
-// ==========================
-// GOOGLE SHEET SEND
-// ==========================
 function sendToGoogleSheet(name, phone, address) {
 
-  fetch("https://script.google.com/macros/s/AKfycbyYCi9UXP0hwGvI9jSOaDVz9JnKRHZfW4SfeUObUTQPw1QKQSvRoiXG6CXWQZh7aPkEqw/exec", {
+  return fetch("https://script.google.com/macros/s/AKfycby3vR0AnpTMjWfA1-_h6stvMil_7fIhTbccbJMC2Ij0amtCmX7wLk3AyOemRioefF82/exec", {
     method: "POST",
+    mode: "no-cors",
     headers: {
       "Content-Type": "application/json"
     },
-body: JSON.stringify({
-  name: name,
-  phone: phone,
-  address: address,
-  order: document.getElementById("orderText").value,
-  subtotal: order.subTotal,
-  delivery: order.shipping,
-  total: order.grandTotal,
-  source: "Website"
-})
-
+    body: JSON.stringify({
+      name: name,
+      phone: phone,
+      address: address,
+      order: document.getElementById("orderText").value,
+      subtotal: order.subTotal,
+      delivery: order.shipping,
+      total: order.grandTotal,
+      source: "Website"
+    })
   });
 
 }
 </script>
 
 <script>
-// ==========================
-// WHATSAPP ORDER
-// ==========================
 function sendWhatsApp() {
 
-  let name = document.getElementById("c_name").value;
-  let phone = document.getElementById("c_phone").value;
-  let address = document.getElementById("c_address").value;
+  let name = c_name.value;
+  let phone = c_phone.value;
+  let address = c_address.value;
 
   if (!name || !phone || !address) {
     alert("সব তথ্য পূরণ করুন");
     return;
   }
 
-  sendToGoogleSheet(name, phone, address);
+  sendToGoogleSheet(name, phone, address)
+    .then(() => {
 
-  let message =
+      let message =
 `🧾 নতুন অর্ডার (খামারীর উঠান)
 
-👤 নাম: ${name}
-📞 মোবাইল: ${phone}
-🏠 ঠিকানা: ${address}
+নাম: ${name}
+মোবাইল: ${phone}
+ঠিকানা: ${address}
 
-🛒 অর্ডার:
-${document.getElementById("orderText").value}`;
+${orderText.value}`;
 
-  window.open(
-    "https://wa.me/8801842160764?text=" + encodeURIComponent(message),
-    "_blank"
-  );
+      window.open(
+        "https://wa.me/8801842160764?text=" + encodeURIComponent(message),
+        "_blank"
+      );
 
-  setTimeout(() => {
-    window.location.href = "thankyou.html";
-  }, 1000);
+      setTimeout(() => {
+        location.href = "thankyou.html";
+      }, 1000);
+
+    });
+
 }
 </script>
 
