@@ -109,28 +109,40 @@ document.getElementById("invoiceTotal").innerText =
   "মোট টাকা: ৳" + order.grandTotal;
 </script>
 
-<script>
-function sendToGoogleSheet(name, phone, address) {
+function doPost(e) {
+  try {
+    const SHEET_ID = "19raYMADAgnrgH_YBdh3VEj-KZnWmE2pZ5HssbknQA"; // ← EXACT
+    const SHEET_NAME = "Orders";
 
-  const formData = new URLSearchParams();
-  formData.append("name", name);
-  formData.append("phone", phone);
-  formData.append("address", address);
-  formData.append("order", document.getElementById("orderText").value);
-  formData.append("subtotal", order.subTotal);
-  formData.append("delivery", order.shipping);
-  formData.append("total", order.grandTotal);
-  formData.append("source", "Website");
+    const sheet = SpreadsheetApp
+      .openById(SHEET_ID)
+      .getSheetByName(SHEET_NAME);
 
-  return fetch(
-    "https://script.google.com/macros/s/AKfycbyEEAYxMSGdZ8PdDMoN9zG1GT3eHXlyFSz4Ltrme5690BoMG-TnDhkKkC7VIPp0C4Iv/exec",
-    {
-      method: "POST",
-      body: formData
-    }
-  );
+    const data = e.parameter;
+
+    sheet.appendRow([
+      new Date(),
+      data.name || "",
+      data.phone || "",
+      data.address || "",
+      data.order || "",
+      data.subtotal || "",
+      data.delivery || "",
+      data.total || "",
+      data.source || "Website",
+      "New"
+    ]);
+
+    return ContentService
+      .createTextOutput("SUCCESS")
+      .setMimeType(ContentService.MimeType.TEXT);
+
+  } catch (err) {
+    return ContentService
+      .createTextOutput("ERROR: " + err.message)
+      .setMimeType(ContentService.MimeType.TEXT);
+  }
 }
-</script>
 
 
 
