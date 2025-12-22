@@ -133,11 +133,12 @@ function doPost(e) {
       "New"
     ]);
 
-    return ContentService
-      .createTextOutput("SUCCESS")
-      .setMimeType(ContentService.MimeType.TEXT);
-
-  } catch (err) {
+function doGet() {
+  return ContentService
+    .createTextOutput("Web App is LIVE ✅")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+ catch (err) {
     return ContentService
       .createTextOutput("ERROR: " + err.message)
       .setMimeType(ContentService.MimeType.TEXT);
