@@ -112,26 +112,27 @@ document.getElementById("invoiceTotal").innerText =
 <script>
 function sendToGoogleSheet(name, phone, address) {
 
-  return fetch("https://script.google.com/macros/s/AKfycby3vR0AnpTMjWfA1-_h6stvMil_7fIhTbccbJMC2Ij0amtCmX7wLk3AyOemRioefF82/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      name: name,
-      phone: phone,
-      address: address,
-      order: document.getElementById("orderText").value,
-      subtotal: order.subTotal,
-      delivery: order.shipping,
-      total: order.grandTotal,
-      source: "Website"
-    })
-  });
+  const formData = new URLSearchParams();
+  formData.append("name", name);
+  formData.append("phone", phone);
+  formData.append("address", address);
+  formData.append("order", document.getElementById("orderText").value);
+  formData.append("subtotal", order.subTotal);
+  formData.append("delivery", order.shipping);
+  formData.append("total", order.grandTotal);
+  formData.append("source", "Website");
 
+  return fetch(
+    "https://script.google.com/macros/s/AKfycbyEEAYxMSGdZ8PdDMoN9zG1GT3eHXlyFSz4Ltrme5690BoMG-TnDhkKkC7VIPp0C4Iv/exec",
+    {
+      method: "POST",
+      body: formData
+    }
+  );
 }
 </script>
+
+
 
 <script>
 function sendWhatsApp() {
@@ -145,18 +146,17 @@ function sendWhatsApp() {
     return;
   }
 
-  sendToGoogleSheet(name, phone, address)
-    .then(() => {
-
-      let message =
-`🧾 নতুন অর্ডার (খামারীর উঠান)
+  let message =
+`নতুন অর্ডার (খামারীর উঠান)
 
 নাম: ${name}
 মোবাইল: ${phone}
 ঠিকানা: ${address}
 
-${orderText.value}`;
+${document.getElementById("orderText").value}`;
 
+  sendToGoogleSheet(name, phone, address)
+    .then(() => {
       window.open(
         "https://wa.me/8801842160764?text=" + encodeURIComponent(message),
         "_blank"
@@ -164,10 +164,11 @@ ${orderText.value}`;
 
       setTimeout(() => {
         location.href = "thankyou.html";
-      }, 1000);
-
+      }, 1200);
+    })
+    .catch(() => {
+      alert("❌ অর্ডার পাঠাতে সমস্যা হয়েছে");
     });
-
 }
 </script>
 
