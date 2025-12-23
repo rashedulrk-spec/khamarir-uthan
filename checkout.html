@@ -123,7 +123,7 @@ function sendToGoogleSheet(name, phone, address) {
   params.append("source", "Website");
 
   return fetch(
-    "https://script.google.com/macros/s/1so5g5EXMDBb9G3s2V-D2m1mEMRutNLpT7JQ7yf9AZ1E",
+    "https://script.google.com/macros/s/AKfycbzTmNnhAHhVlFPgPGSVpqEyu5w3Su1eyWgBXCc10g3JCd0rHEzXcma73KcU1eEKcsvfOA/exec",
     {
       method: "POST",
       body: params
@@ -131,6 +131,7 @@ function sendToGoogleSheet(name, phone, address) {
   );
 }
 </script>
+
 
 
 
@@ -227,3 +228,4 @@ function manualOrder() {
 
 </body>
 </html>
+
