@@ -112,26 +112,25 @@ document.getElementById("invoiceTotal").innerText =
 <script>
 function sendToGoogleSheet(name, phone, address) {
 
-  const formData = new URLSearchParams();
-  formData.append("name", name);
-  formData.append("phone", phone);
-  formData.append("address", address);
-  formData.append("order", document.getElementById("orderText").value);
-  formData.append("subtotal", order.subTotal);
-  formData.append("delivery", order.shipping);
-  formData.append("total", order.grandTotal);
-  formData.append("source", "Website");
+  const params = new URLSearchParams();
+  params.append("name", name);
+  params.append("phone", phone);
+  params.append("address", address);
+  params.append("order", document.getElementById("orderText").value);
+  params.append("subtotal", order.subTotal);
+  params.append("delivery", order.shipping);
+  params.append("total", order.grandTotal);
+  params.append("source", "Website");
 
   return fetch(
-    "https://script.google.com/macros/s/1so5g5EXMDBb9G3s2V-D2m1mEMRutNLpT7JQ7yf9AZ1E/exec",
+    "https://script.google.com/macros/s/AKfycbzTmNnhAHhVlFPgPGSVpqEyu5w3Su1eyWgBXCc10g3JCd0rHEzXcma73KcU1eEKcsvfOA/exec",
     {
       method: "POST",
-      body: formData
+      body: params
     }
   );
 }
 </script>
-
 
 
 
